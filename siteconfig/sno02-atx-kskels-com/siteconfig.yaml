@@ -15,6 +15,7 @@ spec:
     networkType: "OVNKubernetes"
     clusterLabels: 
       common: true
+      5gcore-profile: true
       sites : "sno02"
     clusterNetwork:
       - cidr: "10.100.0.0/16"
