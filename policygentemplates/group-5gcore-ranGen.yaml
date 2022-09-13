@@ -14,17 +14,17 @@ spec:
       policyName: "config-policy"
       spec:
         storageClassDevices:
-          - storageClassName: "local-storage"
+          - storageClassName: "local-storage-1"
             volumeMode: Filesystem
             fsType: ext4
             devicePaths:
               - /dev/sdb
-          - storageClassName: "local-storage"
+          - storageClassName: "local-storage-2"
             volumeMode: Filesystem
             fsType: ext4
             devicePaths:
               - /dev/sdc
-          - storageClassName: "local-storage"
+          - storageClassName: "local-storage-2"
             volumeMode: Filesystem
             fsType: ext4
             devicePaths:
