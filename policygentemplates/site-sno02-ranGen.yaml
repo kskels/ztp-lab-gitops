@@ -34,7 +34,6 @@ spec:
         nicSelector:
           pfNames: ["ens4f0#0-0"]
         numVfs: 9
-        priority: 10
         resourceName: x710_0_openshift
     - fileName: SriovNetworkNodePolicy.yaml
       policyName: "config-policy"
@@ -46,7 +45,6 @@ spec:
         nicSelector:
           pfNames: ["ens4f0#1-4"]
         numVfs: 9
-        priority: 10
         resourceName: x710_0_vfio_pci
     - fileName: SriovNetworkNodePolicy.yaml
       policyName: "config-policy"
@@ -58,5 +56,4 @@ spec:
         nicSelector:
           pfNames: ["ens4f0#5-8"]
         numVfs: 9
-        priority: 10
         resourceName: x710_0_netdevice
