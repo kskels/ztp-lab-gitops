@@ -8,7 +8,6 @@ spec:
   bindingRules:
     # These policies will correspond to all clusters with this label:
     common: "true"
-    du-profile: "v4.10"
   sourceFiles:
     # Create operators policies that will be installed in all clusters
     - fileName: SriovSubscription.yaml
