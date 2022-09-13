@@ -1,0 +1,75 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "sno01-atx-kskels-com"
+  namespace: "sno01-atx-kskels-com"
+spec:
+  baseDomain: "atx.kskels.com"
+  pullSecretRef:
+    name: "pull-secret"
+  clusterImageSetNameRef: "openshift-v4.10.22"
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxLsmU7suROe520RAqaqE+Xtmx0iIGpG0IFLKcduA3t kskels@redhat.com"
+  clusters:
+  - clusterName: "sno01"
+    networkType: "OVNKubernetes"
+    clusterLabels: 
+      common: true
+      sites : "sno01"
+    clusterNetwork:
+      - cidr: "10.96.0.0/16"
+        hostPrefix: 23
+    machineNetwork: 
+      - cidr: "192.168.212.0/24"
+    serviceNetwork:
+      - "172.97.0.0/16"
+    additionalNTPSources:
+      - "192.168.2.1"
+    nodes:
+      - hostName: "sno01"
+        role: "master"
+        bmcAddress: redfish-virtualmedia+http://192.168.211.5:8000/redfish/v1/Systems/13e092cd-71ed-43c9-a75e-e4eaa21a4d62
+        bmcCredentialsName:
+          name: "bmc-secret" 
+        bootMACAddress: "52:54:00:4e:3a:2e"
+        #bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: "/dev/sda"
+        cpuset: "0-1,6-7"
+        nodeNetwork: 
+          interfaces:
+            - name: "enp1s0"
+              macAddress: "52:54:00:4e:3a:2e"
+          config:
+            interfaces:
+              - name: enp1s0
+                type: ethernet
+                state: up
+                macAddress: "52:54:00:4e:3a:2e"
+                ipv4:
+                  enabled: true
+                  address:
+                    - ip: 192.168.212.50
+                      prefix-length: 24
+                  dhcp: false
+                ipv6:
+                  enabled: false
+              - name: enp4s0.4004
+                type: vlan
+                state: up
+                vlan:
+                  base-iface: enp4s0
+                  id: 4004
+
+            dns-resolver:
+              config:
+                search:
+                - kskels.com
+                server:
+                - 192.168.2.1
+            routes:
+              config:
+              - destination: 0.0.0.0/0
+                next-hop-address: 192.168.212.1
+                next-hop-interface: enp1s0
+                table-id: 254
