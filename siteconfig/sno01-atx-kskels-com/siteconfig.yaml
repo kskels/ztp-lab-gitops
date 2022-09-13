@@ -34,7 +34,8 @@ spec:
         bootMACAddress: "52:54:00:4e:3a:2e"
         #bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: "/dev/sda"
+          # /dev/sda
+          hctl: "0:0:0:0"
         cpuset: "0-1,6-7"
         nodeNetwork: 
           interfaces:
@@ -60,7 +61,6 @@ spec:
                 vlan:
                   base-iface: enp4s0
                   id: 4004
-
             dns-resolver:
               config:
                 search:
