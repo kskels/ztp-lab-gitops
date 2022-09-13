@@ -1,0 +1,47 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "group-5gcore"
+  namespace: "ztp-group"
+spec:
+  bindingRules:
+    5gcore-profile: "true"
+  mcp: "master"
+  sourceFiles:
+
+    - fileName: StorageLV.yaml
+      policyName: "config-policy"
+      spec:
+        storageClassDevices:
+          - storageClassName: "local-storage"
+            volumeMode: Filesystem
+            fsType: ext4
+            devicePaths:
+              - /dev/sdb
+          - storageClassName: "local-storage"
+            volumeMode: Filesystem
+            fsType: ext4
+            devicePaths:
+              - /dev/sdc
+          - storageClassName: "local-storage"
+            volumeMode: Filesystem
+            fsType: ext4
+            devicePaths:
+              - /dev/sdd
+
+    - fileName: PerformanceProfile.yaml
+      policyName: "config-policy"
+      metadata:
+        name: openshift-node-performance-profile
+      spec:
+        additionalKernelArgs:
+          - pci=realloc
+        cpu:
+          isolated: "2-7,10-15"
+          reserved: "0-1,8-9"
+        hugepages:
+          defaultHugepagesSize: 1G
+          pages:
+            - size: 1G
+              count: 8
