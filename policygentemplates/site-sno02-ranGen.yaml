@@ -9,21 +9,6 @@ spec:
     sites: "sno02"
   mcp: "master"
   sourceFiles:
-          # - fileName: PerformanceProfile.yaml
-          #   policyName: "config-policy"
-          #   metadata:
-          #     name: openshift-node-performance-profile
-          #   spec:
-          #     additionalKernelArgs:
-          #       - pci=realloc
-          #     cpu:
-          #       isolated: "2-7,10-15"
-          #       reserved: "0-1,8-9"
-          #     hugepages:
-          #       defaultHugepagesSize: 1G
-          #       pages:
-          #         - size: 1G
-          #           count: 8
     - fileName: SriovNetworkNodePolicy.yaml
       policyName: "config-policy"
       metadata:
@@ -57,3 +42,36 @@ spec:
           pfNames: ["ens4f0#5-8"]
         numVfs: 9
         resourceName: x710_0_netdevice
+    - fileName: SriovNetworkNodePolicy.yaml
+      policyName: "config-policy"
+      metadata:
+        name: "policy-x710-1-openshift"
+      spec:
+        deviceType: netdevice
+        isRdma: false
+        nicSelector:
+          pfNames: ["ens4f1#0-0"]
+        numVfs: 9
+        resourceName: x710_1_openshift
+    - fileName: SriovNetworkNodePolicy.yaml
+      policyName: "config-policy"
+      metadata:
+        name: "policy-x710-1-vfio-pci"
+      spec:
+        deviceType: vfio-pci
+        isRdma: false
+        nicSelector:
+          pfNames: ["ens4f1#1-4"]
+        numVfs: 9
+        resourceName: x710_1_vfio_pci
+    - fileName: SriovNetworkNodePolicy.yaml
+      policyName: "config-policy"
+      metadata:
+        name: "policy-x710-1-netdevice"
+      spec:
+        deviceType: netdevice
+        isRdma: false
+        nicSelector:
+          pfNames: ["ens4f1#5-8"]
+        numVfs: 9
+        resourceName: x710_1_netdevice
