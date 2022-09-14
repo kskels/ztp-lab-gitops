@@ -12,6 +12,8 @@ spec:
 
     - fileName: StorageLV.yaml
       policyName: "config-policy"
+      metadata:
+        name: "dev-sdb"
       spec:
         storageClassDevices:
           - storageClassName: "local-storage"
@@ -21,6 +23,8 @@ spec:
               - /dev/sdb
     - fileName: StorageLV.yaml
       policyName: "config-policy"
+      metadata:
+        name: "dev-sdc"
       spec:
         storageClassDevices:
           - storageClassName: "local-storage"
@@ -30,6 +34,8 @@ spec:
               - /dev/sdc
     - fileName: StorageLV.yaml
       policyName: "config-policy"
+      metadata:
+        name: "dev-sdd"
       spec:
         storageClassDevices:
           - storageClassName: "local-storage"
