@@ -14,22 +14,29 @@ spec:
       policyName: "config-policy"
       spec:
         storageClassDevices:
-          - storageClassName: "local-storage-1"
+          - storageClassName: "local-storage"
             volumeMode: Filesystem
             fsType: ext4
             devicePaths:
               - /dev/sdb
-          - storageClassName: "local-storage-2"
+    - fileName: StorageLV.yaml
+      policyName: "config-policy"
+      spec:
+        storageClassDevices:
+          - storageClassName: "local-storage"
             volumeMode: Filesystem
             fsType: ext4
             devicePaths:
               - /dev/sdc
-          - storageClassName: "local-storage-2"
+    - fileName: StorageLV.yaml
+      policyName: "config-policy"
+      spec:
+        storageClassDevices:
+          - storageClassName: "local-storage"
             volumeMode: Filesystem
             fsType: ext4
             devicePaths:
               - /dev/sdd
-
     - fileName: PerformanceProfile.yaml
       policyName: "config-policy"
       metadata:
@@ -44,4 +51,4 @@ spec:
           defaultHugepagesSize: 1G
           pages:
             - size: 1G
-              count: 8
+              count: 16
