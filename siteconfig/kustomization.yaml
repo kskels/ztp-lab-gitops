@@ -3,4 +3,4 @@ kind: Kustomization
 
 resources:
 - sno01-atx-kskels-com
-#- sno02-atx-kskels-com
+- sno02-atx-kskels-com
