@@ -54,7 +54,7 @@ spec:
           isolated: "2-7,10-15"
           reserved: "0-1,8-9"
         hugepages:
-          defaultHugepagesSize: 1G
+          defaultHugepagesSize: 2G
           pages:
             - size: 1G
               count: 16
