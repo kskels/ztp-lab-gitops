@@ -8,19 +8,19 @@ spec:
   baseDomain: "atx.kskels.com"
   pullSecretRef:
     name: "pull-secret"
-  clusterImageSetNameRef: "openshift-v4.10.22"
+  clusterImageSetNameRef: "openshift-v4.11.4"
   sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxLsmU7suROe520RAqaqE+Xtmx0iIGpG0IFLKcduA3t kskels@redhat.com"
   clusters:
   - clusterName: "sno02"
     networkType: "OVNKubernetes"
-    clusterLabels: 
+    clusterLabels:
       common: true
       5gcore-profile: true
       sites : "sno02"
     clusterNetwork:
       - cidr: "10.100.0.0/16"
         hostPrefix: 23
-    machineNetwork: 
+    machineNetwork:
       - cidr: "192.168.212.0/24"
     serviceNetwork:
       - "172.101.0.0/16"
@@ -31,14 +31,14 @@ spec:
         role: "master"
         bmcAddress: "idrac-virtualmedia+https://192.168.212.6/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
-          name: "bmc-secret" 
+          name: "bmc-secret"
         bootMACAddress: "b8:cb:29:d9:2f:54"
         bootMode: "UEFI"
         rootDeviceHints:
           # /dev/sda
           hctl: '1:0:0:0'
         cpuset: "0-1,14-15"
-        nodeNetwork: 
+        nodeNetwork:
           interfaces:
             - name: "eno8303"
               macAddress: "b8:cb:29:d9:2f:54"
