@@ -18,7 +18,7 @@ spec:
         isRdma: false
         nicSelector:
           pfNames: ["ens4f0#0-0"]
-        numVfs: 10
+        numVfs: 9
         resourceName: x710_0_openshift
     - fileName: SriovNetworkNodePolicy.yaml
       policyName: "config-policy"
@@ -29,7 +29,7 @@ spec:
         isRdma: false
         nicSelector:
           pfNames: ["ens4f0#1-4"]
-        numVfs: 10
+        numVfs: 9
         resourceName: x710_0_vfio_pci
     - fileName: SriovNetworkNodePolicy.yaml
       policyName: "config-policy"
@@ -40,7 +40,7 @@ spec:
         isRdma: false
         nicSelector:
           pfNames: ["ens4f0#5-8"]
-        numVfs: 10
+        numVfs: 9
         resourceName: x710_0_netdevice
     - fileName: SriovNetworkNodePolicy.yaml
       policyName: "config-policy"
@@ -51,7 +51,7 @@ spec:
         isRdma: false
         nicSelector:
           pfNames: ["ens4f1#0-0"]
-        numVfs: c10
+        numVfs: 9
         resourceName: x710_1_openshift
     - fileName: SriovNetworkNodePolicy.yaml
       policyName: "config-policy"
@@ -62,7 +62,7 @@ spec:
         isRdma: false
         nicSelector:
           pfNames: ["ens4f1#1-4"]
-        numVfs: 10
+        numVfs: 9
         resourceName: x710_1_vfio_pci
     - fileName: SriovNetworkNodePolicy.yaml
       policyName: "config-policy"
@@ -72,6 +72,6 @@ spec:
         deviceType: netdevice
         isRdma: false
         nicSelector:
-          pfNames: ["ens4f1#5-9"]
-        numVfs: 10
+          pfNames: ["ens4f1#5-8"]
+        numVfs: 9
         resourceName: x710_1_netdevice
